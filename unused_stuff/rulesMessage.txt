@@ -1,0 +1,13 @@
+  /*const rules = new Discord.MessageEmbed()
+    .setTimestamp()
+    .setAuthor("Simply Tickets", "https://munch42.github.io/img/SimpleTicketsImage.jpg")
+    .setTitle("Rules")
+    .setFooter("Rules!")
+    .addFields(
+      { name: 'General Rules:', value: "1. No Swearing or Inappropriate Behaviour of Any Kind. \n2. Be Respectful \n3. No Unnecessary Pinging of Anyone, If they ask you to stop then stop. \n 4. Don't abuse voice chats. No screaming etc. \n 5. Only DM people who you have explicitly asked for permission to DM (This includes DM Advertising which is against the rules). \n\nStaff Members have full discretion and power to interpret these rules. If you would like to report a staff member, create a ticket with the subject of `Staff Help`." },
+      { name: 'Bot Specific Rules', value: "1. No Abusing any bot commands from any bot. If you are caught doing this, you will be either muted or blacklisted from that bot's commands. \n 2. Do not exploit any bots even if an exploit is available. Create a ticket reporting it immediately." },
+      { name: 'Simply Tickets Support Rules', value: "1. Do not **demand** support. \n2. Try to explain your problem to the best of your ability and if possible, provide your server's ID (Though if you don't want to, you don't have to. \n 3. You may ping users either in reply to them or who have replied to you only within the support channels." },
+    )
+    .setColor("#e68525");
+
+  message.channel.send(rules);*/
