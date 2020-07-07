@@ -191,6 +191,14 @@ module.exports = {
 
                 channel.send(channelStartEmbed);
 
+                if (settings[id].extraPing != null) {
+                    let doPing = settings[id].extraPing;
+
+                    if (doPing == "true") {
+                        channel.send(`<@&${supportID}>`);
+                    }
+                }
+
                 if (settings[id].logChannel) {
                     let loggingChannel = message.client.channels.cache.get(settings[id].logChannel);
 
