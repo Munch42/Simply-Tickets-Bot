@@ -69,6 +69,46 @@ module.exports = {
 
             let cancelledCommand = false;
 
+            if (settings[id].closeConfirmation == "false") {
+                if (settings[id].logChannel) {
+                    let loggingChannel = message.client.channels.cache.get(settings[id].logChannel);
+
+                    if (!loggingChannel) {
+                        let embed4 = new Discord.MessageEmbed()
+                            .setTimestamp()
+                            .setAuthor("Simply Tickets", "https://munch42.github.io/img/SimpleTicketsImage.jpg")
+                            .setDescription(`The specified logging channel was not found. Please contact your guild administrators.`)
+                            .setFooter("HTTP Error Code: 500")
+                            .setColor("#a3051d");
+
+                        message.channel.send(embed4);
+                    } else {
+                        let embed5 = new Discord.MessageEmbed()
+                            .setTimestamp()
+                            .setAuthor("Simply Tickets", "https://munch42.github.io/img/SimpleTicketsImage.jpg")
+                            .setDescription(`🚫 A ticket was closed with the name: \`${message.channel.name}\``)
+                            .setFooter("Closed for good.")
+                            .setColor("#a3051d");
+
+                        loggingChannel.send(embed5);
+                    }
+                }
+
+                message.channel.delete();
+
+                for (let i = 0; i < channels.length; i++) {
+                    if (channels[i] == message.channel.id) {
+                        channels.splice(i, 1);
+                    }
+                }
+
+                ticketinfo[id].channelIDs = channels;
+
+                fs.writeFile("./ticketinfo.json", JSON.stringify(ticketinfo), (err) => {
+                    if (err) console.log(err);
+                });
+            }
+
             message.channel.send(embed3)
                 .then(msg => {
                     msg.react('✅')
